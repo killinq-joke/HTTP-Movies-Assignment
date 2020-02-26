@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function UpdateForm({ id, setMovieList }) {
-  console.log(setMovieList);
   const history = useHistory();
   const [formValues, setFormValues] = useState({});
 
@@ -22,14 +21,12 @@ export default function UpdateForm({ id, setMovieList }) {
     axios
       .put(`http://localhost:5000/api/movies/${id}`, formValues)
       .then(res => {
-        console.log(res.data);
-        
         setMovieList(currentMovieList => {
           return currentMovieList.map(movie => {
             if (movie.id === parseInt(id)) {
               return res.data;
             }
-            return movie
+            return movie;
           });
         });
         history.push("/");

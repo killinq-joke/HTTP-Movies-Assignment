@@ -10,9 +10,8 @@ const MovieCard = ({ movie, movies, setMovieList }) => {
     axios
       .delete(`http://localhost:5000/api/movies/${id}`)
       .then(res => {
-        console.log(res);
         setMovieList(movies.filter(m => m.id !== id));
-        history.push("/")
+        history.push("/");
       })
       .catch(err => {
         console.log(err);
@@ -34,9 +33,8 @@ const MovieCard = ({ movie, movies, setMovieList }) => {
           {star}
         </div>
       ))}
-      
+
       <button onClick={evt => deleteMovie(id)}>Delete</button>
-      
     </div>
   );
 };
