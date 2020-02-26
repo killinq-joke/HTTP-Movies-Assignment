@@ -36,6 +36,7 @@ const MovieCard = ({ movie, movies, setMovieList }) => {
       ))}
       
       <button onClick={evt => deleteMovie(id)}>Delete</button>
+      
     </div>
   );
 };
